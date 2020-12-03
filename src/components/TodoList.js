@@ -7,7 +7,7 @@ const TodoList = props => {
             {console.log("src>comp>todolist>",props)}
             {props.tasks.map(
                 todo => {
-                   return <Todo key ={todo.id} finished={todo.finished} task={todo.task}/>
+                   return <Todo key={todo.id} id={todo.id} finished={todo.finished} task={todo.task} markFinished={props.markFinished}/>
                 }
             )}
         </div>
