@@ -14,7 +14,9 @@ class App extends React.Component {
   //handler functions will be here
   //handleChanges//nope
   //handleSubmit//nope
-  //add task
+  /*add task:
+  addTask is a callback that gets passed to the form - in the form it is used to handle submission - a handler in form passes it the submit event and the forms internal state (user input) and add task uses that argument to create a new object, it adds an id and a boolean then appends the object to app state.
+  */
   addTask = (event, task) => {
     event.preventDefault();
     console.log("adding task:", task);
@@ -25,7 +27,7 @@ class App extends React.Component {
     };
     this.setState({
       ...this.state,
-      todos: [this.state.todos, addTask]
+      todos: [...this.state.todos, addTask]
     })
   }
   //clear task
@@ -33,7 +35,7 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <TodoList />
+        <TodoList tasks={this.state.todos}/>
         <TodoForm addTask={this.addTask} />
       </div>
     );

@@ -1,16 +1,21 @@
-import React from 'react'
+import React from 'react';
+import Todo from './Todo';
 
-class TodoList extends React.Component{
-render(){
-    return(
+const TodoList = props => {
+    return (
         <div>
-            list here...
+            {console.log("src>comp>todolist>",props)}
+            {props.tasks.map(
+                todo => {
+                   return <Todo key ={todo.id} finished={todo.finished} task={todo.task}/>
+                }
+            )}
         </div>
     )
 }
-}
 
 export default TodoList;
+
 
 
 //receives the Todos array and iterates over the list generating a new <Todo/> for each element in the array
